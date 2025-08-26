@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Über uns — La Verde Team</title>
+    <meta name="description"
+        content="Lernen Sie das Team von La Verde kennen: Tim, Anna und Johanna. Unsere Leidenschaft für Premium Oliven, Avocados und Kaffeebohnen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fff8;
+            --card: #ffffff;
+            --muted: #4a5568;
+            --accent: #2563eb;
+            --glass: rgba(37, 99, 235, 0.08);
+            --radius: 14px;
+            --max-width: 1200px;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg);
+            color: #1a202c
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 36px auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #fff;
+            font-size: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15)
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #064e3b
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        nav {
+            display: flex;
+            gap: 12px
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 10px
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: var(--accent)
+        }
+
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+            padding: 40px 20px;
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 10px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 16px
+        }
+
+        h2 {
+            margin: 12px 0 16px;
+            font-size: 36px;
+            color: #065f46
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 40px 0
+        }
+
+        .team-member {
+            background: var(--card);
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px)
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #fff;
+            margin: 0 auto 20px;
+            font-weight: 800
+        }
+
+        .member-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #065f46;
+            margin: 0 0 8px
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0 0 16px
+        }
+
+        .member-bio {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0
+        }
+
+        .values-section {
+            background: var(--card);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 40px 0
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 20px
+        }
+
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 16px
+        }
+
+        .value-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #065f46;
+            margin: 0 0 8px
+        }
+
+        .value-description {
+            color: var(--muted);
+            line-height: 1.5;
+            margin: 0
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            padding: 12px 20px;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            transition: all 0.2s ease
+        }
+
+        .back-link:hover {
+            background: var(--accent);
+            color: #fff
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1)
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">LV</div>
+                <div>
+                    <h1>La Verde</h1>
+                    <p class="lead">Oliven • Avocados • Kaffeebohnen — nachhaltig & frisch</p>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="index.html#produkte">Produkte</a>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </nav>
+        </header>
+
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+        <section class="hero">
+            <span class="eyebrow">Unser Team</span>
+            <h2>Die Menschen hinter La Verde</h2>
+            <p>Wir sind ein kleines, leidenschaftliches Team, das sich der Qualität und Nachhaltigkeit verschrieben hat.
+                Jeder von uns bringt seine einzigartigen Fähigkeiten ein, um Ihnen die besten Produkte zu bieten.</p>
+        </section>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="bilder/Download (1).jpeg" alt="Tim - Gründer & Geschäftsführer"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3 class="member-name">Tim</h3>
+                <p class="member-role">Gründer & Geschäftsführer</p>
+                <p class="member-bio">Tim hat La Verde aus der Überzeugung heraus gegründet, dass Qualität und
+                    Nachhaltigkeit
+                    Hand in Hand gehen. Seine Leidenschaft für authentische Produkte treibt unser Unternehmen an.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="bilder/Download (2).jpeg" alt="Anna - Qualitätsmanagerin & Produktentwicklung"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3 class="member-name">Anna</h3>
+                <p class="member-role">Qualitätsmanagerin & Produktentwicklung</p>
+                <p class="member-bio">Anna sorgt dafür, dass jedes Produkt unseren hohen Qualitätsstandards entspricht.
+                    Ihre Expertise in der Lebensmittelbranche ist unverzichtbar für unser Sortiment.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-avatar">
+                    <img src="bilder/Download (3).jpeg" alt="Johanna - Marketing & Kundenbetreuung"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <h3 class="member-name">Johanna</h3>
+                <p class="member-role">Marketing & Kundenbetreuung</p>
+                <p class="member-bio">Johanna verbindet unsere Kunden mit unseren Produkten. Ihr Fokus liegt darauf,
+                    dass jeder Kunde eine persönliche und zufriedenstellende Erfahrung macht.</p>
+            </div>
+        </div>
+
+        <section class="values-section">
+            <h2 style="text-align: center; margin-bottom: 32px; color: #065f46;">Unsere Werte</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">Nachhaltigkeit</h3>
+                    <p class="value-description">Wir arbeiten nur mit Produzenten zusammen, die umweltbewusst und sozial
+                        verantwortlich handeln.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">⭐</div>
+                    <h3 class="value-title">Qualität</h3>
+                    <p class="value-description">Jedes Produkt wird sorgfältig ausgewählt und getestet, bevor es in
+                        unser Sortiment aufgenommen wird.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">Transparenz</h3>
+                    <p class="value-description">Wir teilen gerne die Geschichten hinter unseren Produkten und
+                        Produzenten mit Ihnen.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">💚</div>
+                    <h3 class="value-title">Leidenschaft</h3>
+                    <p class="value-description">Unsere Liebe zu guten Lebensmitteln treibt uns an, das Beste für unsere
+                        Kunden zu finden.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                © <strong>La Verde</strong> — nachhaltig & frisch • Alle Rechte vorbehalten
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

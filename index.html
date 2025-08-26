@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Verde — Oliven • Avocados • Kaffeebohnen</title>
+  <meta name="description" content="Premium Oliven, reife Avocados und handverlesene Kaffeebohnen — direkt vom Produzenten. Moderner Onlineshop für Feinschmecker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8fff8; /* helles Grün-Weiß */
+      --card:#ffffff;
+      --muted:#4a5568;
+      --accent:#16a34a; /* kräftiges Grün */
+      --glass: rgba(22,163,74,0.08);
+      --radius:14px;
+      --max-width:1200px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#1a202c}
+    .container{max-width:var(--max-width);margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#16a34a,#22c55e);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+    h1{margin:0;font-size:20px;color:#064e3b}
+    p.lead{margin:0;color:var(--muted)}
+
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:#fff;background:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .hero-card{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+    .eyebrow{display:inline-block;padding:6px 10px;background:rgba(22,163,74,0.1);color:var(--accent);border-radius:999px;font-weight:600;font-size:12px}
+    h2{margin:12px 0 8px;font-size:32px;color:#065f46}
+    .cta-row{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .btn{padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+
+    /* Gallery placeholder with icons */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .gallery .icon-placeholder{display:flex;align-items:center;justify-content:center;background:#e6f9ec;border:2px dashed #16a34a;color:#16a34a;font-size:40px;font-weight:800;border-radius:10px;height:120px}
+
+    /* Product grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:30px}
+    .product{background:var(--card);padding:14px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.1);position:relative;overflow:hidden}
+    .prod-img{width:100%;height:180px;object-fit:cover;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#e6f9ec;border:2px dashed #16a34a;color:#16a34a;font-size:40px;font-weight:800}
+    .prod-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .price{font-weight:800;color:#065f46}
+    .badge{background:#f0fdf4;padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:60}
+    .modal.open{display:flex}
+    .modal-card{width:min(880px,92%);background:#fff;padding:20px;border-radius:16px}
+
+    footer{margin-top:40px;padding:20px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .prod-img{height:140px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">LV</div>
+        <div>
+          <h1>La Verde</h1>
+          <p class="lead">Oliven • Avocados • Kaffeebohnen — nachhaltig & frisch</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#produkte">Produkte</a>
+        <a href="#über">Über uns</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Premium Auswahl</span>
+        <h2>Handverlesene Oliven, reife Avocados und aromatische Kaffeebohnen</h2>
+        <p class="lead">Direkt von kleinen Familienbetrieben. Nachhaltig geerntet, schonend verarbeitet und ansprechend verpackt — ideal als Geschenk oder für deine Küche.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="scrollToGrid()">Jetzt entdecken</button>
+          <button class="btn btn-ghost" onclick="openModal('about')">Mehr erfahren</button>
+        </div>
+
+        <div class="gallery">
+          <div class="icon-placeholder">🍈</div>
+          <div class="icon-placeholder">🥑</div>
+          <div class="icon-placeholder">☕</div>
+          <div class="icon-placeholder">🥗</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="hero-card" style="flex:1;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <h3 style="margin:0">Heute im Angebot</h3>
+            <p class="lead" style="margin-top:6px">Extra native Olivenöl-Oliven • Avocado Hass • Arabica Espresso</p>
+          </div>
+          <div class="prod-img">⭐</div>
+        </div>
+
+        <div class="hero-card" style="padding:12px;display:flex;gap:12px;align-items:center">
+          <div>
+            <strong>Versand</strong>
+            <p class="lead" style="margin:6px 0 0">Kostenlos ab 50€ Bestellwert</p>
+          </div>
+          <div style="margin-left:auto;text-align:right">
+            <small class="badge">Nachhaltig verpackt</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="produkte">
+      <h2 style="margin-top:34px;color:#065f46">Unsere Produkte</h2>
+      <div class="grid" id="productGrid">
+        <!-- Produkt 1: Oliven -->
+        <article class="product">
+          <div class="prod-img">🍈</div>
+          <div class="prod-meta">
+            <div>
+              <strong>Kalamatá Oliven</strong>
+              <div style="font-size:13px;color:var(--muted)">Extra large • in Meersalzlake</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">€8,90</div>
+              <div class="badge">250g</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">Fruchtig-würzig, ideal für Salate, Antipasti oder Brotzeit.</p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn btn-primary">In den Warenkorb</button>
+            <button class="btn btn-ghost">Ansicht</button>
+          </div>
+        </article>
+
+        <!-- Produkt 2: Avocados -->
+        <article class="product">
+          <div class="prod-img">🥑</div>
+          <div class="prod-meta">
+            <div>
+              <strong>Hass Avocado (3er)</strong>
+              <div style="font-size:13px;color:var(--muted)">Perfekt reif & cremig</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">€6,50</div>
+              <div class="badge">3 Stück</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">Vielseitig verwendbar — vom Toast bis zur Salsa.</p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn btn-primary">In den Warenkorb</button>
+            <button class="btn btn-ghost">Ansicht</button>
+          </div>
+        </article>
+
+        <!-- Produkt 3: Kaffeebohnen -->
+        <article class="product">
+          <div class="prod-img">☕</div>
+          <div class="prod-meta">
+            <div>
+              <strong>Espresso Blend (500g)</strong>
+              <div style="font-size:13px;color:var(--muted)">100% Arabica • mittel-dunkel geröstet</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">€12,90</div>
+              <div class="badge">500g</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">Intensiv, schokoladig, ideal für Mokkakanne und Siebträger.</p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn btn-primary">In den Warenkorb</button>
+            <button class="btn btn-ghost">Ansicht</button>
+          </div>
+        </article>
+
+        <!-- Platzhalter-Produkt -->
+        <article class="product">
+          <div class="prod-img">🎁</div>
+          <div class="prod-meta">
+            <div><strong>Olivenmix Geschenkset</strong><div style="font-size:13px;color:var(--muted)">3 Sorten • Geschenkbox</div></div>
+            <div style="text-align:right"><div class="price">€19,90</div><div class="badge">Box</div></div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">Schöne Geschenkverpackung — ideal für Feinschmecker.</p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn btn-primary">In den Warenkorb</button>
+            <button class="btn btn-ghost">Ansicht</button>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-hidden="true">
+      <div class="modal-card">
+        <button style="float:right;background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;font-size:18px" onclick="closeModal()">✕</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div>
+        © <strong>La Verde</strong> — nachhaltig & frisch • Alle Rechte vorbehalten
+      </div>
+      <div style="text-align:right">
+        <div id="cartSummary">Warenkorb: <strong id="cartCount">0</strong> Artikel — <strong id="cartTotal">€0.00</strong></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    function scrollToGrid(){
+      document.getElementById('productGrid').scrollIntoView({behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
